@@ -3,4 +3,4 @@ typedef struct WifiConfig {
     char password[30];
 } WifiConfig;
 
-void connect(WifiConfig config);
+void connectWifi(WifiConfig wifiConfig);
