@@ -1,3 +1,6 @@
-cmake_minimum_required(VERSION 3.16.0)
-include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(espressif32_wifi)
+get_filename_component(dir ${CMAKE_CURRENT_LIST_FILE} PATH)
+FILE(GLOB_RECURSE app_sources ${dir}/src/*.c)
+
+idf_component_register(SRCS ${app_sources}      
+                    INCLUDE_DIRS "src"
+)
