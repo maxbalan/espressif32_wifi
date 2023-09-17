@@ -84,9 +84,9 @@ void connectWifi(wifi_config_t *wifiConfig) {
                                            portMAX_DELAY);
 
     if (bits & WIFI_CONNECTED_BIT) {
-        ESP_LOGI(TAG_STA, "connected to ap SSID:%d password:%d", wifiConfig->sta.ssid, &wifiConfig->sta.password);
+        ESP_LOGI(TAG_STA, "connected to ap SSID:%s password:%s", &wifiConfig->sta.ssid, &wifiConfig->sta.password);
     } else if (bits & WIFI_FAIL_BIT) {
-        ESP_LOGI(TAG_STA, "Failed to connect to SSID:%s, password:%s", wifiConfig->sta.ssid, &wifiConfig->sta.password);
+        ESP_LOGI(TAG_STA, "Failed to connect to SSID:%s, password:%s", &wifiConfig->sta.ssid, &wifiConfig->sta.password);
     } else {
         ESP_LOGE(TAG_STA, "UNEXPECTED EVENT");
         return;
