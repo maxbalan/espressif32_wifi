@@ -28,7 +28,7 @@ static void wifi_event_handler(void *arg,
     }
 }
 
-void connectWifi(WifiConfig wifiConfig) {
+void connectWifi(WifiConfig *wifiConfig) {
     esp_event_loop_create_default();
 
     // Initialize NVS
@@ -64,10 +64,11 @@ void connectWifi(WifiConfig wifiConfig) {
     // configure WIFI AP
     wifi_config_t config = {
         .sta = {
-            .ssid = wifiConfig.ssid,
-            .password = wifiConfig.password,
+            .ssid = wifiConfig->ssid,
+            .password = wifiConfig->password,
         },
     };
+
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &config));
 
@@ -84,10 +85,10 @@ void connectWifi(WifiConfig wifiConfig) {
 
     if (bits & WIFI_CONNECTED_BIT) {
         ESP_LOGI(TAG_STA, "connected to ap SSID:%s password:%s",
-                 wifiConfig.ssid, wifiConfig.password);
+                 wifiConfig->ssid, wifiConfig->password);
     } else if (bits & WIFI_FAIL_BIT) {
         ESP_LOGI(TAG_STA, "Failed to connect to SSID:%s, password:%s",
-                 wifiConfig.ssid, wifiConfig.password);
+                 wifiConfig->ssid, wifiConfig->password);
     } else {
         ESP_LOGE(TAG_STA, "UNEXPECTED EVENT");
         return;
