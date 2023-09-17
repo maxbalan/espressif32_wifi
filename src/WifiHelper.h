@@ -1,1 +1,1 @@
-void connectWifi(wifi_config_t *wifiConfig);
+void connectWifi(wifi_config_t wifiConfig);
