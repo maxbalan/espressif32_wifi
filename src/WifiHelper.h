@@ -1,6 +1,6 @@
 typedef struct WifiConfig {
-    char ssid[30];
-    char password[30];
+    uint8_t ssid[32];
+    uint8_t password[64];
 } WifiConfig;
 
 void connectWifi(WifiConfig wifiConfig);
