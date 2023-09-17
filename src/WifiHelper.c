@@ -65,7 +65,7 @@ void connect(WifiConfig config) {
     wifi_config_t config = {
         .sta = {
             .ssid = config.ssid,
-            .password = config.passowrd,
+            .password = config.password,
         },
     };
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
@@ -84,10 +84,10 @@ void connect(WifiConfig config) {
 
     if (bits & WIFI_CONNECTED_BIT) {
         ESP_LOGI(TAG_STA, "connected to ap SSID:%s password:%s",
-                 config.ssid, config.passowrd);
+                 config.ssid, config.password);
     } else if (bits & WIFI_FAIL_BIT) {
         ESP_LOGI(TAG_STA, "Failed to connect to SSID:%s, password:%s",
-                 config.ssid, config.passowrd);
+                 config.ssid, config.password);
     } else {
         ESP_LOGE(TAG_STA, "UNEXPECTED EVENT");
         return;
