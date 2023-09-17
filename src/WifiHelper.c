@@ -57,8 +57,8 @@ void connectWifi(WifiConfig wifiConfig) {
 
     //     init wifi
     esp_netif_create_default_wifi_sta();
-    wifi_init_config_t wifiConfig = WIFI_INIT_CONFIG_DEFAULT();
-    ESP_ERROR_CHECK(esp_wifi_init(&wifiConfig));
+    wifi_init_config_t wifiInitConfig = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&wifiInitConfig));
 
 
     // configure WIFI AP
