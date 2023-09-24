@@ -1,8 +1,8 @@
 {
 	"name": "WifiHelper",
 	"version": "1.0.0",
-	"description": "a wrapper around espressif32 wifi implementation",
-	"keywords": "wifi, espressif32",
+	"description": "a wrapper around espressif IDF esp32 wifi implementation",
+	"keywords": "wifi, espressif, esp32",
 	"repository":
 	{
 	  "type": "git",
