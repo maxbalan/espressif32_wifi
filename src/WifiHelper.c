@@ -51,15 +51,6 @@ void connectWifi(wifi_config_t wifiConfig) {
     wifi_init_config_t wifiInitConfig = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_wifi_init(&wifiInitConfig));
 
-
-    // configure WIFI AP
-    // wifi_config_t config = {
-    //     .sta = {
-    //         .ssid = wifiConfig->ssid,
-    //         .password = wifiConfig->password,
-    //     },
-    // };
-
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifiConfig));
 
